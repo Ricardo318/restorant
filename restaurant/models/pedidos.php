@@ -38,7 +38,7 @@ function __construct()
         $descripcion= $pedido->getDescripcion(); 
 
         $db= new DB();
-        $stmt =  $db->getConexion()->prepare("INSERT INTO pedidos (mesa, descripcion) VALUES (?,?)");
+        $stmt =  $db->getConexion()->prepare("INSERT INTO pedidos (id_mesa, descripcion) VALUES (?,?)");
         $stmt->bindParam(1,  $mesa);
         $stmt->bindParam(2,  $descripcion);
     
@@ -48,7 +48,7 @@ function __construct()
 
     public function eliminarPedido($mesa){
         $db= new DB();
-        $stmt =  $db->getConexion()->prepare("DELETE FROM pedidos WHERE mesa = ?");
+        $stmt =  $db->getConexion()->prepare("DELETE FROM pedidos WHERE id_mesa = ?");
         $stmt->bindParam(1, $mesa);
         $stmt->execute();
     
